@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matematika Kelas 10 SMA Semester 2 - Kurikulum Merdeka</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .sq3r-section h3 {
+            font-size: 1.25rem; /* 20px */
+            font-weight: 600;
+            margin-top: 1.5rem; /* 24px */
+            margin-bottom: 0.75rem; /* 12px */
+            color: #1e3a8a; /* Tailwind blue-800 */
+        }
+        .sq3r-section h4 { /* Added for subheadings within Read section */
+            font-size: 1.1rem; /* approx 18px */
+            font-weight: 600;
+            margin-top: 1.25rem; /* 20px */
+            margin-bottom: 0.5rem; /* 8px */
+            color: #1d4ed8; /* Tailwind blue-700 */
+        }
+        .sq3r-section p, .sq3r-section ul, .sq3r-section table {
+            margin-bottom: 1rem; /* 16px */
+            line-height: 1.6;
+        }
+        .sq3r-section ul {
+            list-style-position: inside;
+            /* padding-left: 1.5rem; /* 24px */ /* Adjusted for better alignment with list-disc */
+        }
+        .sq3r-section ul li {
+             margin-bottom: 0.5rem;
+        }
+        .sq3r-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+        .sq3r-section th, .sq3r-section td {
+            border: 1px solid #e5e7eb; /* Tailwind gray-200 */
+            padding: 0.75rem;
+            text-align: left;
+        }
+        .sq3r-section th {
+            background-color: #f3f4f6; /* Tailwind gray-100 */
+            font-weight: 600;
+        }
+        .analogy {
+            background-color: #e0f2fe; /* Tailwind lightBlue-100 */
+            border-left: 4px solid #0ea5e9; /* Tailwind lightBlue-500 */
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.375rem; /* rounded-md */
+        }
+        .analogy p {
+            margin-bottom: 0;
+        }
+        .formula-box {
+            background-color: #fef3c7; /* Tailwind amber-100 */
+            border: 1px solid #fcd34d; /* Tailwind amber-300 */
+            padding: 0.5rem 1rem; /* Adjusted padding */
+            margin: 0.5rem 0; /* Adjusted margin */
+            border-radius: 0.375rem; /* rounded-md */
+            font-family: 'Courier New', Courier, monospace;
+            display: inline-block; /* Makes it wrap content */
+        }
+        .example-box {
+            background-color: #dcfce7; /* Tailwind green-100 */
+            border: 1px solid #86efac; /* Tailwind green-300 */
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.375rem; /* rounded-md */
+        }
+        .nav-button {
+            transition: all 0.3s ease;
+        }
+        .nav-button.active {
+            background-color: #1e3a8a; /* Tailwind blue-800 */
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .nav-button:hover:not(.active) {
+            background-color: #3b82f6; /* Tailwind blue-500 */
+            color: white;
+        }
+        .chapter-title {
+            border-bottom: 2px solid #1e3a8a;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        /* Styling untuk MathJax (jika digunakan) */
+        .math-inline {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 1.1em;
+        }
+        .math-display {
+            display: block;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 1.2em;
+            text-align: center;
+            margin: 1em 0;
+        }
+        .quiz-item {
+            background-color: #f9fafb; /* Tailwind gray-50 */
+        }
+        .quiz-feedback.correct {
+            color: #16a34a; /* Tailwind green-600 */
+            font-weight: 600;
+        }
+        .quiz-feedback.incorrect {
+            color: #dc2626; /* Tailwind red-600 */
+            font-weight: 600;
+        }
+        .quiz-explanation {
+            background-color: #fefce8; /* Tailwind yellow-50 */
+            border: 1px solid #fde047; /* Tailwind yellow-300 */
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-blue-700 text-white p-6 shadow-md">
+        <div class="container mx-auto">
+            <h1 class="text-3xl font-bold">Matematika SMA Kelas 10 Semester 2</h1>
+            <p class="text-lg">Kurikulum Merdeka - Belajar dengan Metode SQ3R</p>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex flex-wrap justify-center p-2 sm:p-4 space-x-1 sm:space-x-2">
+            <button class="nav-button tab-button text-xs sm:text-sm md:text-base px-3 py-2 rounded-md font-medium text-gray-700" onclick="openTab(event, 'home')">Beranda</button>
+            <button class="nav-button tab-button text-xs sm:text-sm md:text-base px-3 py-2 rounded-md font-medium text-gray-700" onclick="openTab(event, 'bab1')">Bab 1: SPL & SPtL</button>
+            <button class="nav-button tab-button text-xs sm:text-sm md:text-base px-3 py-2 rounded-md font-medium text-gray-700" onclick="openTab(event, 'bab2')">Bab 2: Fungsi Kuadrat</button>
+            <button class="nav-button tab-button text-xs sm:text-sm md:text-base px-3 py-2 rounded-md font-medium text-gray-700" onclick="openTab(event, 'bab3')">Bab 3: Statistika</button>
+            <button class="nav-button tab-button text-xs sm:text-sm md:text-base px-3 py-2 rounded-md font-medium text-gray-700" onclick="openTab(event, 'bab4')">Bab 4: Peluang</button>
+        </div>
+    </nav>
+
+    <!-- Content Area -->
+    <main class="container mx-auto p-4 sm:p-6">
+        <!-- Home Content -->
+        <div id="home" class="tab-content active bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-semibold mb-4 chapter-title text-blue-700">Selamat Datang di Pembelajaran Matematika!</h2>
+            <p class="mb-4">Halo, Sobat Pintar kelas 10! Siap buat petualangan matematika seru di semester 2 ini? Eits, jangan langsung pasang muka tegang, ya! Matematika itu nggak melulu soal rumus-rumus njelimet, kok. Justru, kalau kita kenalan lebih dekat, matematika itu asyik dan super relevan sama kehidupan kita sehari-hari.</p>
+            <p class="mb-4">Website ini dirancang untuk membantu kamu memahami materi Matematika Kelas 10 Semester 2 Kurikulum Merdeka dengan menggunakan metode SQ3R (Survey, Question, Read, Recite, Review). Metode ini akan membimbing kamu melalui setiap bab dengan cara yang terstruktur dan interaktif, kini dilengkapi dengan kuis interaktif untuk menguji pemahamanmu!</p>
+            <div class="grid md:grid-cols-2 gap-6 my-6">
+                <div class="bg-blue-50 p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Apa yang Akan Kamu Pelajari?</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Sistem Persamaan dan Pertidaksamaan Linear</li>
+                        <li>Fungsi Kuadrat</li>
+                        <li>Statistika</li>
+                        <li>Peluang</li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold text-green-700 mb-2">Metode SQ3R</h3>
+                    <p><strong class="text-green-600">Survey (Survei):</strong> Dapatkan gambaran umum materi.</p>
+                    <p><strong class="text-green-600">Question (Pertanyaan):</strong> Buat pertanyaan terkait materi.</p>
+                    <p><strong class="text-green-600">Read (Baca):</strong> Pelajari materi secara mendalam.</p>
+                    <p><strong class="text-green-600">Recite (Ulas Kembali):</strong> Ringkas dan jelaskan ulang dengan kata-katamu sendiri.</p>
+                    <p><strong class="text-green-600">Review (Tinjau Ulang):</strong> Uji pemahamanmu dengan latihan dan kuis interaktif.</p>
+                </div>
+            </div>
+            <p>Pilih bab yang ingin kamu pelajari dari navigasi di atas. Selamat belajar dan semoga sukses!</p>
+            <div class="mt-8 text-center">
+                <img src="https://placehold.co/600x300/3b82f6/ffffff?text=Selamat+Belajar+Matematika!" alt="Ilustrasi Belajar Matematika" class="mx-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/600x300/cccccc/333333?text=Image+Not+Found';">
+            </div>
+        </div>
+
+        <!-- Bab 1 Content: Sistem Persamaan dan Pertidaksamaan Linear -->
+        <div id="bab1" class="tab-content bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-semibold mb-6 chapter-title text-blue-700">Bab 1: Sistem Persamaan dan Pertidaksamaan Linear – Memecahkan Misteri Keseharian</h2>
+
+            <!-- Survey -->
+            <section class="sq3r-section">
+                <h3>S - Survey (Survei)</h3>
+                <p>Selamat datang di Bab 1! Di sini, kita akan menjelajahi dunia Sistem Persamaan dan Pertidaksamaan Linear. Pernahkah kamu bingung menghitung total belanjaan atau membagi biaya dengan teman? Materi ini akan membantumu menjadi pemecah masalah handal untuk situasi sehari-hari tersebut. Kita akan belajar bagaimana memodelkan masalah nyata ke dalam bahasa matematika dan menyelesaikannya dengan berbagai metode. Bab ini sangat aplikatif dan akan membantumu melihat matematika dari sudut pandang yang lebih praktis.</p>
+                <p><strong>Apa yang akan kamu pelajari?</strong></p>
+                <ul class="list-disc">
+                    <li>Konsep dasar persamaan linear satu, dua, dan tiga variabel.</li>
+                    <li>Metode penyelesaian Sistem Persamaan Linear Dua Variabel (SPLDV): substitusi, eliminasi, dan campuran.</li>
+                    <li>Konsep pertidaksamaan linear.</li>
+                    <li>Cara menentukan Daerah Himpunan Penyelesaian (DHP) untuk pertidaksamaan linear dua variabel dan sistemnya.</li>
+                    <li>Aplikasi SPLDV dan SPtLDV dalam soal cerita.</li>
+                </ul>
+                 <div class="analogy">
+                    <p><strong>Analogi:</strong> Bayangkan kamu adalah seorang detektif yang harus memecahkan kasus dengan berbagai petunjuk. Persamaan dan pertidaksamaan linear adalah alat bantumu untuk menghubungkan petunjuk-petunjuk tersebut dan menemukan solusinya!</p>
+                </div>
+            </section>
+
+            <!-- Question -->
+            <section class="sq3r-section">
+                <h3>Q - Question (Pertanyaan)</h3>
+                <p>Sebelum kita mulai membaca lebih lanjut, coba pikirkan pertanyaan-pertanyaan berikut. Pertanyaan ini akan membantu memandu proses belajarmu:</p>
+                <ul class="list-disc">
+                    <li>Apa itu persamaan linear dan apa bedanya dengan pertidaksamaan linear?</li>
+                    <li>Bagaimana cara mengubah masalah sehari-hari menjadi model matematika menggunakan persamaan atau pertidaksamaan linear?</li>
+                    <li>Apa saja metode yang bisa digunakan untuk menyelesaikan sistem persamaan linear dua variabel? Kapan sebaiknya menggunakan masing-masing metode?</li>
+                    <li>Bagaimana cara menggambarkan solusi dari pertidaksamaan linear dua variabel pada grafik? Apa itu Daerah Himpunan Penyelesaian (DHP)?</li>
+                    <li>Dalam situasi apa saja konsep sistem persamaan dan pertidaksamaan linear ini bisa berguna dalam kehidupan nyata?</li>
+                </ul>
+            </section>
+
+            <!-- Read -->
+            <section class="sq3r-section">
+                <h3>R - Read (Baca)</h3>
+                <h4>1.1. Kenalan dengan Persamaan Linear: Apa Sih Itu?</h4>
+                <p>Persamaan linear adalah kalimat matematika yang menggunakan tanda sama dengan (=) dan variabelnya (huruf pengganti angka, biasanya x atau y) hanya berpangkat satu. Jika digambar, bentuknya akan menjadi garis lurus.</p>
+                <div class="analogy">
+                    <p><strong>Analogi Neraca Seimbang:</strong> Persamaan linear itu seperti neraca atau timbangan yang seimbang. Apa pun yang kamu taruh di sisi kiri, beratnya harus sama persis dengan yang di sisi kanan.</p>
+                </div>
+                <p>Contoh: Kamu beli 2 buku tulis (harga 1 buku = x) dan 1 pulpen (harga 1 pulpen = y). Total bayar Rp10.000. Persamaannya: <span class="font-mono text-purple-700">2x + y = 10.000</span>.</p>
+                <p><strong>Jenis Persamaan Linear:</strong></p>
+                <ul class="list-disc">
+                    <li><strong>Persamaan Linear Satu Variabel (PLSV):</strong> Bentuk umum <span class="font-mono text-purple-700">ax + b = 0</span>. Contoh: <span class="font-mono text-purple-700">2x – 9 = 3</span>.</li>
+                    <li><strong>Persamaan Linear Dua Variabel (PLDV):</strong> Bentuk umum <span class="font-mono text-purple-700">ax + by = c</span>. Contoh: <span class="font-mono text-purple-700">2x + y = 10.000</span>.</li>
+                    <li><strong>Persamaan Linear Tiga Variabel (PLTV):</strong> Bentuk umum <span class="font-mono text-purple-700">ax + by + cz = d</span>.</li>
+                </ul>
+
+                <h4>1.2. Jurus-Jurus Menyelesaikan Sistem Persamaan Linear Dua Variabel (SPLDV)</h4>
+                <p>SPLDV adalah kumpulan dua atau lebih persamaan linear dua variabel yang saling terkait. Solusinya adalah pasangan nilai (x,y) yang memenuhi semua persamaan.</p>
+                <p><strong>Metode Penyelesaian SPLDV:</strong></p>
+                <ul class="list-disc">
+                    <li>
+                        <strong>Metode Substitusi:</strong> Menggantikan nilai satu variabel dari satu persamaan ke persamaan lainnya.
+                        <div class="analogy">
+                            <p><strong>Analogi Resep Rahasia:</strong> Kamu punya resep rahasia (nilai satu variabel) dari satu teman, lalu resep itu kamu pakai untuk 'memasak' di resep teman yang lain.</p>
+                        </div>
+                        <p>Langkah-langkah:</p>
+                        <ol class="list-decimal pl-5">
+                            <li>Pilih satu persamaan, nyatakan satu variabel dalam bentuk variabel lain (misal, <span class="font-mono text-purple-700">x = 5 – y</span>).</li>
+                            <li>Substitusikan ekspresi tersebut ke persamaan lain.</li>
+                            <li>Selesaikan persamaan baru untuk mendapatkan nilai satu variabel.</li>
+                            <li>Substitusikan nilai yang ditemukan kembali ke salah satu persamaan awal untuk mencari nilai variabel lainnya.</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <strong>Metode Eliminasi:</strong> Menghilangkan salah satu variabel dengan menjumlahkan atau mengurangkan kedua persamaan setelah menyamakan koefisien variabel yang akan dihilangkan.
+                        <div class="analogy">
+                            <p><strong>Analogi Tumpukan Koin:</strong> Untuk mengetahui nilai satu jenis koin, kamu 'hilangkan' dulu pengaruh koin jenis lain dengan menyamakan jumlahnya di kedua tumpukan, lalu bandingkan selisih nilai totalnya.</p>
+                        </div>
+                         <p>Langkah-langkah:</p>
+                        <ol class="list-decimal pl-5">
+                            <li>Putuskan variabel mana yang mau dihilangkan.</li>
+                            <li>Samakan koefisien variabel tersebut di kedua persamaan.</li>
+                            <li>Jika tanda koefisien sama, kurangkan. Jika beda, jumlahkan kedua persamaan.</li>
+                            <li>Selesaikan persamaan yang tersisa.</li>
+                            <li>Ulangi untuk variabel lain atau gunakan substitusi.</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <strong>Metode Campuran (Eliminasi-Substitusi):</strong> Gabungan kedua metode, biasanya lebih efisien. Eliminasi dulu, lalu substitusi.
+                        <div class="analogy">
+                            <p><strong>Analogi Kerja Tim Game:</strong> Satu pemain (eliminasi) membuka jalan, teman lainnya (substitusi) memanfaatkan situasi untuk menyelesaikan misi.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Metode Grafik:</strong> Solusi adalah titik potong dari kedua garis persamaan.
+                        <div class="analogy">
+                            <p><strong>Analogi Janjian di Persimpangan:</strong> Titik temu (persimpangan) adalah solusinya.</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="example-box">
+                    <p><strong>Contoh Soal Cerita SPLDV:</strong></p>
+                    <p>Sopyan beli 5 pulpen dan 3 buku harganya Rp12.000. Heri beli 5 pulpen dan 2 buku harganya Rp10.000. Berapa harga 1 buku dan 1 pulpen?</p>
+                    <p><strong>Pembahasan:</strong></p>
+                    <p>Misal harga 1 pulpen = x, harga 1 buku = y.</p>
+                    <p>Persamaan 1: <span class="font-mono text-purple-700">5x + 3y = 12000</span></p>
+                    <p>Persamaan 2: <span class="font-mono text-purple-700">5x + 2y = 10000</span></p>
+                    <p>Eliminasi x (Persamaan 1 - Persamaan 2):</p>
+                    <p><span class="font-mono text-purple-700">(5x + 3y) - (5x + 2y) = 12000 - 10000</span></p>
+                    <p><span class="font-mono text-purple-700">y = 2000</span> (Harga 1 buku = Rp2.000)</p>
+                    <p>Substitusi y = 2000 ke Persamaan 2:</p>
+                    <p><span class="font-mono text-purple-700">5x + 2(2000) = 10000</span></p>
+                    <p><span class="font-mono text-purple-700">5x + 4000 = 10000</span></p>
+                    <p><span class="font-mono text-purple-700">5x = 6000</span></p>
+                    <p><span class="font-mono text-purple-700">x = 1200</span> (Harga 1 pulpen = Rp1.200)</p>
+                    <p>Jadi, harga 1 buku Rp2.000 dan 1 pulpen Rp1.200.</p>
+                </div>
+
+                <h4>1.3. Pertidaksamaan Linear: Saat Sesuatu "Nggak Harus Sama Persis"</h4>
+                <p>Pertidaksamaan linear menggunakan tanda ketidaksamaan: < (kurang dari), > (lebih dari), ≤ (kurang dari atau sama dengan), atau ≥ (lebih dari atau sama dengan). Variabelnya tetap pangkat satu.</p>
+                <div class="analogy">
+                    <p><strong>Analogi Batas Uang Jajan:</strong> Maksimal uang jajan per minggu Rp100.000. Pengeluaran (P) harus <span class="font-mono text-purple-700">P ≤ 100.000</span>.</p>
+                </div>
+                <p><strong>Menentukan Daerah Himpunan Penyelesaian (DHP) untuk Pertidaksamaan Linear Dua Variabel:</strong></p>
+                <ol class="list-decimal pl-5">
+                    <li><strong>Ubah jadi Persamaan Garis Batas:</strong> Ganti tanda ketidaksamaan dengan (=), lalu gambar garisnya.</li>
+                    <li>
+                        <strong>Tentukan Jenis Garis:</strong>
+                        <ul class="list-disc pl-5">
+                            <li>'<' atau '>': Garis putus-putus (batas tidak termasuk solusi).</li>
+                            <li>'≤' atau '≥': Garis penuh (batas termasuk solusi).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Uji Titik:</strong> Pilih titik yang tidak pada garis (biasanya (0,0)), masukkan ke pertidaksamaan awal.</li>
+                    <li>
+                        <strong>Tentukan Daerah Arsiran:</strong>
+                        <ul class="list-disc pl-5">
+                            <li>Jika pernyataan benar: Arsir daerah yang memuat titik uji.</li>
+                            <li>Jika pernyataan salah: Arsir daerah seberangnya.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <div class="example-box">
+                    <p><strong>Contoh Soal Cerita SPtLDV:</strong></p>
+                    <p>Rogu bawa barang, motornya bisa bawa beban < 24 kg. Baju (x) beratnya 3 kg/karung, celana (y) 2 kg/karung. Berapa banyak karung baju dan celana yang bisa dibawa?</p>
+                    <p><strong>Pembahasan:</strong></p>
+                    <p>Model matematika: <span class="font-mono text-purple-700">3x + 2y < 24</span>. Syarat tambahan: <span class="font-mono text-purple-700">x ≥ 0, y ≥ 0</span>.</p>
+                    <p>Langkah menggambar DHP untuk <span class="font-mono text-purple-700">3x + 2y < 24</span>:</p>
+                    <ol class="list-decimal pl-5">
+                        <li>Garis Batas: <span class="font-mono text-purple-700">3x + 2y = 24</span>.
+                            <ul class="list-disc pl-5">
+                                <li>Jika x=0, 2y=24 -> y=12. Titik (0,12).</li>
+                                <li>Jika y=0, 3x=24 -> x=8. Titik (8,0).</li>
+                            </ul>
+                            Hubungkan (0,12) dan (8,0) dengan garis putus-putus (karena '<').
+                        </li>
+                        <li>Uji Titik (0,0): <span class="font-mono text-purple-700">3(0) + 2(0) < 24</span> -> <span class="font-mono text-purple-700">0 < 24</span> (BENAR).</li>
+                        <li>Arsir Daerah: Arsir daerah yang memuat (0,0) (di bawah garis).</li>
+                        <li>Gabungkan dengan <span class="font-mono text-purple-700">x ≥ 0, y ≥ 0</span>: DHP adalah daerah segitiga di kuadran I yang dibatasi sumbu x, sumbu y, dan garis <span class="font-mono text-purple-700">3x + 2y = 24</span>.</li>
+                    </ol>
+                    <p>[Gambar DHP untuk 3x + 2y < 24, x >= 0, y >= 0 akan ditampilkan di sini. Daerah yang diarsir adalah segitiga dengan titik sudut (0,0), (8,0), dan (0,12), dengan garis antara (8,0) dan (0,12) putus-putus, dan arsiran di bawah garis tersebut dalam kuadran pertama.]</p>
+                     <img src="https://placehold.co/400x300/e0e0e0/333333?text=Contoh+DHP+3x+2y<24" alt="Contoh DHP 3x + 2y < 24" class="mx-auto my-4 rounded shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/400x300/cccccc/333333?text=Image+Not+Found';">
+                </div>
+            </section>
+
+            <!-- Recite -->
+            <section class="sq3r-section">
+                <h3>R - Recite (Ulas Kembali)</h3>
+                <p>Mari kita ringkas poin-poin penting dari Bab 1:</p>
+                <ul class="list-disc">
+                    <li><strong>Persamaan Linear:</strong> Kalimat matematika dengan tanda '=' dan variabel berpangkat satu. Grafiknya garis lurus.</li>
+                    <li><strong>Pertidaksamaan Linear:</strong> Menggunakan tanda '<', '>', '≤', '≥'. Solusinya berupa daerah.</li>
+                    <li><strong>SPLDV:</strong> Sistem yang terdiri dari dua atau lebih PLDV. Solusinya adalah titik potong grafiknya.</li>
+                    <li><strong>Metode Penyelesaian SPLDV:</strong>
+                        <ul class="list-disc pl-5">
+                            <li><strong>Substitusi:</strong> Mengganti variabel.</li>
+                            <li><strong>Eliminasi:</strong> Menghilangkan variabel.</li>
+                            <li><strong>Campuran:</strong> Kombinasi eliminasi dan substitusi (paling umum).</li>
+                            <li><strong>Grafik:</strong> Mencari titik potong.</li>
+                        </ul>
+                    </li>
+                    <li><strong>DHP (Daerah Himpunan Penyelesaian):</strong> Daerah pada grafik yang memenuhi semua pertidaksamaan dalam sistem. Ditentukan dengan garis batas (penuh/putus-putus) dan uji titik.</li>
+                    <li><strong>Aplikasi:</strong> Sangat berguna untuk memecahkan masalah sehari-hari seperti perhitungan biaya, alokasi sumber daya, dll.</li>
+                </ul>
+                <p><strong>Tabel Ringkasan Jurus SPLDV:</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nama Metode</th>
+                            <th>Kapan Cocok Digunakan</th>
+                            <th>Langkah Singkat</th>
+                            <th>Analogi Singkat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Substitusi</td>
+                            <td>Jika salah satu koefisien variabelnya 1 atau -1, atau satu variabel sudah dinyatakan dalam variabel lain.</td>
+                            <td>Ubah 1 persamaan jadi x=… atau y=…, masukkan ke persamaan lain.</td>
+                            <td>Punya resep rahasia, dipakai di masakan lain.</td>
+                        </tr>
+                        <tr>
+                            <td>Eliminasi</td>
+                            <td>Koefisien variabel mudah disamakan, atau ingin langsung menghilangkan satu variabel.</td>
+                            <td>Samakan koefisien satu variabel, lalu jumlahkan/kurangkan kedua persamaan.</td>
+                            <td>Hilangkan satu jenis koin untuk tahu nilai lainnya.</td>
+                        </tr>
+                        <tr>
+                            <td>Campuran</td>
+                            <td>Paling umum dan seringkali paling efisien untuk banyak kasus.</td>
+                            <td>Eliminasi dulu untuk dapat 1 variabel, lalu substitusi nilai itu ke persamaan awal.</td>
+                            <td>Kerja tim: satu buka jalan, yang lain selesaikan.</td>
+                        </tr>
+                        <tr>
+                            <td>Grafik</td>
+                            <td>Untuk memahami solusi secara visual, atau ketika diminta secara spesifik.</td>
+                            <td>Gambar garis dari tiap persamaan, titik potongnya adalah solusi.</td>
+                            <td>Janjian di persimpangan jalan.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Review -->
+            <section class="sq3r-section">
+                <h3>R - Review (Tinjau Ulang)</h3>
+                <p>Untuk menguji pemahamanmu, coba kerjakan beberapa soal latihan berikut atau buat soal ceritamu sendiri berdasarkan situasi sehari-hari dan selesaikan menggunakan konsep yang telah dipelajari!</p>
+                
+                <h4 class="text-lg font-semibold mt-6 mb-3 text-blue-600">Soal Latihan Teks</h4>
+                <div class="example-box">
+                    <p><strong>Soal Latihan:</strong></p>
+                    <ol class="list-decimal pl-5">
+                        <li>Sebuah toko menjual dua jenis kue, kue A dan kue B. Harga 3 kue A dan 2 kue B adalah Rp26.000. Harga 1 kue A dan 3 kue B adalah Rp22.000. Tentukan harga masing-masing kue!</li>
+                        <li>Gambarlah daerah himpunan penyelesaian dari sistem pertidaksamaan berikut:
+                            <ul class="list-disc pl-5 font-mono text-purple-700">
+                                <li>x + y ≤ 6</li>
+                                <li>2x + y ≤ 8</li>
+                                <li>x ≥ 0</li>
+                                <li>y ≥ 0</li>
+                            </ul>
+                        </li>
+                        <li>Seorang petani memiliki lahan tidak lebih dari 8 hektar. Ia ingin menanam padi dan jagung. Untuk menanam padi per hektar diperlukan biaya Rp4.000.000, sedangkan untuk jagung Rp2.000.000 per hektar. Modal yang dimiliki petani adalah Rp20.000.000. Buatlah model matematika dari permasalahan tersebut!</li>
+                    </ol>
+                </div>
+
+                <h4 class="text-lg font-semibold mt-6 mb-3 text-blue-600">Kuis Interaktif Bab 1</h4>
+                <div class="quiz-item my-6 p-4 border border-gray-300 rounded-lg">
+                    <p class="font-semibold mb-2">1. Manakah dari berikut ini yang merupakan contoh Persamaan Linear Dua Variabel (PLDV)?</p>
+                    <div class="space-y-1 mb-3">
+                        <div><label><input type="radio" name="q1_bab1" value="A" class="mr-2"> 2x + 5 = 10</label></div>
+                        <div><label><input type="radio" name="q1_bab1" value="B" class="mr-2"> x² - 3x + 2 = 0</label></div>
+                        <div><label><input type="radio" name="q1_bab1" value="C" class="mr-2"> 3x - 2y = 7</label></div>
+                        <div><label><input type="radio" name="q1_bab1" value="D" class="mr-2"> y > 4x - 1</label></div>
+                    </div>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md text-sm" onclick="checkAnswer('q1_bab1', 'C', 'Persamaan Linear Dua Variabel (PLDV) adalah persamaan yang memiliki dua variabel berbeda (misalnya x dan y) dan pangkat tertinggi dari setiap variabelnya adalah satu. Selain itu, PLDV menggunakan tanda sama dengan (=).<br><ul><li>Pilihan A (2x + 5 = 10) adalah Persamaan Linear Satu Variabel.</li><li>Pilihan B (x² - 3x + 2 = 0) adalah Persamaan Kuadrat.</li><li>Pilihan C (3x - 2y = 7) adalah PLDV.</li><li>Pilihan D (y > 4x - 1) adalah Pertidaksamaan Linear Dua Variabel.</li></ul>Oleh karena itu, jawaban yang benar adalah C.')">Periksa Jawaban</button>
+                    <div id="feedback_q1_bab1" class="quiz-feedback mt-2 text-sm"></div>
+                    <div id="explanation_q1_bab1" class="quiz-explanation mt-2 text-sm p-3 rounded-md" style="display:none;"></div>
+                </div>
+
+                <div class="quiz-item my-6 p-4 border border-gray-300 rounded-lg">
+                    <p class="font-semibold mb-2">2. Garis batas untuk pertidaksamaan <span class="font-mono text-purple-700">2x + y < 5</span> digambar sebagai...</p>
+                    <div class="space-y-1 mb-3">
+                        <div><label><input type="radio" name="q2_bab1" value="A" class="mr-2"> Garis penuh</label></div>
+                        <div><label><input type="radio" name="q2_bab1" value="B" class="mr-2"> Garis putus-putus</label></div>
+                        <div><label><input type="radio" name="q2_bab1" value="C" class="mr-2"> Kurva melengkung</label></div>
+                        <div><label><input type="radio" name="q2_bab1" value="D" class="mr-2"> Titik tunggal</label></div>
+                    </div>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md text-sm" onclick="checkAnswer('q2_bab1', 'B', 'Tanda ketidaksamaan \'<\' (kurang dari) atau \'>\' (lebih dari) tanpa \'sama dengan\' menunjukkan bahwa titik-titik pada garis batas itu sendiri tidak termasuk dalam solusi. Oleh karena itu, garis batasnya digambar putus-putus. Jika tandanya \'≤\' atau \'≥\', garisnya digambar penuh.')">Periksa Jawaban</button>
+                    <div id="feedback_q2_bab1" class="quiz-feedback mt-2 text-sm"></div>
+                    <div id="explanation_q2_bab1" class="quiz-explanation mt-2 text-sm p-3 rounded-md" style="display:none;"></div>
+                </div>
+
+
+                <p class="mt-6"><strong>Tips Belajar:</strong></p>
+                <ul class="list-disc">
+                    <li>Banyak latihan soal cerita! Semakin sering kamu 'menerjemahkan' soal cerita jadi model matematika, semakin jago kamu.</li>
+                    <li>Pahami konsep 'keseimbangan' untuk persamaan dan 'batasan' untuk pertidaksamaan.</li>
+                    <li>Jangan takut mencoba berbagai metode penyelesaian.</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Bab 2 Content: Fungsi Kuadrat -->
+        <div id="bab2" class="tab-content bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-semibold mb-6 chapter-title text-blue-700">Bab 2: Fungsi Kuadrat – Melengkung Indah Penuh Makna</h2>
+
+            <!-- Survey -->
+            <section class="sq3r-section">
+                <h3>S - Survey (Survei)</h3>
+                <p>Selamat datang di Bab 2! Kali ini kita akan mempelajari Fungsi Kuadrat. Pernahkah kamu memperhatikan lintasan bola yang dilempar atau ditendang? Bentuknya melengkung, bukan? Nah, lengkungan indah itu bisa dijelaskan secara matematis menggunakan fungsi kuadrat. Bab ini akan mengajakmu memahami bagaimana rumus dapat menggambarkan bentuk-bentuk melengkung di sekitar kita, mulai dari lintasan benda hingga desain arsitektur. Kita akan mengungkap rahasia di balik grafik parabola.</p>
+                <p><strong>Apa yang akan kamu pelajari?</strong></p>
+                <ul class="list-disc">
+                    <li>Definisi dan bentuk umum fungsi kuadrat.</li>
+                    <li>Karakteristik grafik fungsi kuadrat (parabola): keterbukaan, sumbu simetri, titik puncak/balik, titik potong sumbu Y, dan titik potong sumbu X (kaitannya dengan diskriminan).</li>
+                    <li>Cara menyusun persamaan fungsi kuadrat jika diketahui beberapa informasi (titik puncak dan satu titik lain, titik potong sumbu X dan satu titik lain, atau tiga titik sembarang).</li>
+                    <li>Aplikasi fungsi kuadrat dalam kehidupan sehari-hari, seperti menentukan tinggi maksimum, luas maksimum, dll.</li>
+                </ul>
+                <div class="analogy">
+                    <p><strong>Analogi:</strong> Bayangkan kamu sedang melempar bola ke atas. Lintasan bola yang membentuk kurva parabola adalah 'lukisan' dari fungsi kuadrat di dunia nyata.</p>
+                </div>
+            </section>
+
+            <!-- Question -->
+            <section class="sq3r-section">
+                <h3>Q - Question (Pertanyaan)</h3>
+                <p>Sebelum menyelami materi lebih dalam, ajukan pertanyaan-pertanyaan ini pada dirimu:</p>
+                <ul class="list-disc">
+                    <li>Apa yang membedakan fungsi kuadrat dari fungsi linear? Mengapa grafiknya melengkung?</li>
+                    <li>Bagaimana nilai koefisien <span class="font-mono text-purple-700">a</span>, <span class="font-mono text-purple-700">b</span>, dan <span class="font-mono text-purple-700">c</span> dalam <span class="font-mono text-purple-700">f(x) = ax² + bx + c</span> mempengaruhi bentuk dan posisi grafik parabola?</li>
+                    <li>Apa itu sumbu simetri dan titik puncak? Bagaimana cara menentukannya?</li>
+                    <li>Apa peran diskriminan (D) dalam menentukan hubungan grafik fungsi kuadrat dengan sumbu X?</li>
+                    <li>Bagaimana cara membuat persamaan fungsi kuadrat jika hanya diketahui beberapa titik yang dilaluinya atau puncaknya?</li>
+                    <li>Contoh nyata apa saja yang bisa dimodelkan dengan fungsi kuadrat?</li>
+                </ul>
+            </section>
+
+            <!-- Read -->
+            <section class="sq3r-section">
+                <h3>R - Read (Baca)</h3>
+                <h4>2.1. Apa Itu Fungsi Kuadrat? Kenapa Bentuknya Melengkung?</h4>
+                <p>Fungsi kuadrat adalah fungsi yang variabel bebasnya (biasanya x) memiliki pangkat tertinggi dua. Bentuk umumnya adalah <span class="formula-box inline-block">f(x) = ax² + bx + c</span>, dengan <span class="font-mono text-purple-700">a ≠ 0</span>. Pangkat dua pada variabel x inilah yang menyebabkan grafiknya berbentuk melengkung, yang disebut parabola.</p>
+                <div class="analogy">
+                     <p><strong>Analogi Lempar Bola:</strong> Lintasan bola yang dilempar ke atas, mencapai puncak, lalu turun lagi, membentuk parabola. Itu adalah visualisasi fungsi kuadrat.</p>
+                </div>
+
+                <h4>2.2. Mengungkap Rahasia Grafik Parabola (Karakteristik Fungsi Kuadrat)</h4>
+                <p>Grafik fungsi kuadrat (<span class="font-mono text-purple-700">y = ax² + bx + c</span>) memiliki karakteristik berikut:</p>
+                <ul class="list-disc">
+                    <li>
+                        <strong>Keterbukaan Parabola (berdasarkan nilai 'a'):</strong>
+                        <ul class="list-disc pl-5">
+                            <li>Jika <span class="font-mono text-purple-700">a > 0</span> (positif): Parabola terbuka ke atas (seperti mangkok 😊), memiliki nilai minimum.</li>
+                            <li>Jika <span class="font-mono text-purple-700">a < 0</span> (negatif): Parabola terbuka ke bawah (seperti mangkok terbalik ☹️), memiliki nilai maksimum.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Sumbu Simetri:</strong> Garis vertikal yang membagi parabola menjadi dua bagian simetris. Rumusnya: <span class="formula-box inline-block">x = -b / (2a)</span>.
+                    </li>
+                    <li>
+                        <strong>Titik Puncak/Balik (Ekstrem):</strong> Titik di mana parabola berbalik arah.
+                        <ul class="list-disc pl-5">
+                            <li>Koordinat x puncak (<span class="font-mono text-purple-700">xₚ</span>): <span class="font-mono text-purple-700">xₚ = -b / (2a)</span>.</li>
+                            <li>Koordinat y puncak (<span class="font-mono text-purple-700">yₚ</span>): <span class="font-mono text-purple-700">yₚ = f(xₚ)</span> atau <span class="formula-box inline-block">yₚ = -D / (4a)</span>, di mana <span class="font-mono text-purple-700">D = b² - 4ac</span> (Diskriminan).</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Titik Potong Sumbu Y:</strong> Terjadi saat <span class="font-mono text-purple-700">x = 0</span>. Koordinatnya adalah <span class="font-mono text-purple-700">(0, c)</span>.
+                    </li>
+                    <li>
+                        <strong>Titik Potong Sumbu X (Akar-akar persamaan kuadrat <span class="font-mono text-purple-700">ax² + bx + c = 0</span>):</strong> Tergantung nilai Diskriminan (<span class="font-mono text-purple-700">D = b² - 4ac</span>):
+                        <ul class="list-disc pl-5">
+                            <li>Jika <span class="font-mono text-purple-700">D > 0</span>: Grafik memotong sumbu X di dua titik berbeda.</li>
+                            <li>Jika <span class="font-mono text-purple-700">D = 0</span>: Grafik menyinggung sumbu X di satu titik.</li>
+                            <li>Jika <span class="font-mono text-purple-700">D < 0</span>: Grafik tidak memotong maupun menyinggung sumbu X.
+                                <ul class="list-disc pl-5">
+                                    <li>Jika <span class="font-mono text-purple-700">D < 0</span> dan <span class="font-mono text-purple-700">a > 0</span>: Definit positif (seluruh grafik di atas sumbu X).</li>
+                                    <li>Jika <span class="font-mono text-purple-700">D < 0</span> dan <span class="font-mono text-purple-700">a < 0</span>: Definit negatif (seluruh grafik di bawah sumbu X).</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                 <img src="https://placehold.co/500x350/e0e0e0/333333?text=Grafik+Parabola+dan+Karakteristiknya" alt="Grafik Parabola dan Karakteristiknya" class="mx-auto my-4 rounded shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/500x350/cccccc/333333?text=Image+Not+Found';">
+
+
+                <h4>2.3. Menyusun Sendiri Persamaan Fungsi Kuadrat</h4>
+                <p>Kita bisa menyusun persamaan fungsi kuadrat jika diketahui beberapa informasi:</p>
+                <ul class="list-disc">
+                    <li>
+                        <strong>Jika Diketahui Titik Puncak <span class="font-mono text-purple-700">(xₚ, yₚ)</span> dan Satu Titik Lain <span class="font-mono text-purple-700">(x, y)</span>:</strong>
+                        <p>Gunakan rumus: <span class="formula-box inline-block">y = a(x – xₚ)² + yₚ</span>.</p>
+                        <p>Langkah: Substitusikan <span class="font-mono text-purple-700">(xₚ, yₚ)</span> dan <span class="font-mono text-purple-700">(x, y)</span> ke rumus untuk mencari nilai <span class="font-mono text-purple-700">a</span>. Lalu masukkan <span class="font-mono text-purple-700">a</span>, <span class="font-mono text-purple-700">xₚ</span>, dan <span class="font-mono text-purple-700">yₚ</span> kembali ke rumus.</p>
+                        <div class="example-box">
+                            <p><strong>Contoh:</strong> Titik puncak (2,1) dan melalui titik (1,2).</p>
+                            <p><span class="font-mono text-purple-700">2 = a(1 – 2)² + 1</span> => <span class="font-mono text-purple-700">2 = a(-1)² + 1</span> => <span class="font-mono text-purple-700">2 = a + 1</span> => <span class="font-mono text-purple-700">a = 1</span>.</p>
+                            <p>Fungsi kuadratnya: <span class="font-mono text-purple-700">y = 1(x – 2)² + 1</span> => <span class="font-mono text-purple-700">y = x² – 4x + 5</span>.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Jika Diketahui Titik Potong dengan Sumbu X di <span class="font-mono text-purple-700">(x₁, 0)</span> dan <span class="font-mono text-purple-700">(x₂, 0)</span>, serta Satu Titik Lain <span class="font-mono text-purple-700">(x, y)</span>:</strong>
+                        <p>Gunakan rumus: <span class="formula-box inline-block">y = a(x – x₁)(x – x₂)</span>.</p>
+                         <div class="example-box">
+                            <p><strong>Contoh:</strong> Memotong sumbu X di (−1,0) dan (3,0), melalui titik (0,−3).</p>
+                            <p><span class="font-mono text-purple-700">−3 = a(0 – (-1))(0 – 3)</span> => <span class="font-mono text-purple-700">−3 = a(1)(-3)</span> => <span class="font-mono text-purple-700">−3 = -3a</span> => <span class="font-mono text-purple-700">a = 1</span>.</p>
+                            <p>Fungsi kuadratnya: <span class="font-mono text-purple-700">y = 1(x + 1)(x - 3)</span> => <span class="font-mono text-purple-700">y = x² – 2x – 3</span>.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Jika Diketahui Tiga Titik Sembarang <span class="font-mono text-purple-700">(x₁, y₁), (x₂, y₂), (x₃, y₃)</span>:</strong>
+                        <p>Substitusikan ketiga titik ke bentuk umum <span class="font-mono text-purple-700">y = ax² + bx + c</span>. Ini akan menghasilkan Sistem Persamaan Linear Tiga Variabel (SPLTV) dalam <span class="font-mono text-purple-700">a, b, c</span>. Selesaikan SPLTV tersebut.</p>
+                         <div class="example-box">
+                            <p><strong>Contoh:</strong> Melalui titik (−1,1), (0,–4), dan (1,–5).</p>
+                            <p>Dari (0,–4): <span class="font-mono text-purple-700">c = -4</span>.</p>
+                            <p>Dari (−1,1): <span class="font-mono text-purple-700">1 = a – b + c</span> => <span class="font-mono text-purple-700">1 = a – b – 4</span> => <span class="font-mono text-purple-700">a – b = 5</span> (Pers. 1)</p>
+                            <p>Dari (1,–5): <span class="font-mono text-purple-700">–5 = a + b + c</span> => <span class="font-mono text-purple-700">–5 = a + b – 4</span> => <span class="font-mono text-purple-700">a + b = -1</span> (Pers. 2)</p>
+                            <p>Eliminasi/substitusi Pers. 1 dan Pers. 2: <span class="font-mono text-purple-700">2a = 4</span> => <span class="font-mono text-purple-700">a = 2</span>. Maka <span class="font-mono text-purple-700">b = -3</span>.</p>
+                            <p>Fungsi kuadratnya: <span class="font-mono text-purple-700">y = 2x² – 3x – 4</span>.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <h4>2.4. Fungsi Kuadrat dalam Kehidupan</h4>
+                <p>Fungsi kuadrat banyak diterapkan dalam:</p>
+                <ul class="list-disc">
+                    <li><strong>Lintasan Benda yang Dilempar:</strong> Bola basket, peluru, lompat jauh.</li>
+                    <li><strong>Arsitektur dan Teknik:</strong> Bentuk jembatan, atap stadion.</li>
+                    <li><strong>Optimasi:</strong> Mencari keuntungan maksimum, biaya minimum, luas maksimum.</li>
+                </ul>
+                <div class="example-box">
+                    <p><strong>Contoh Soal Aplikasi: Tinggi Maksimum Balon Udara</strong></p>
+                    <p>Tinggi balon udara <span class="font-mono text-purple-700">f(x) = –16x² + 112x – 91</span>. Tentukan tinggi maksimum!</p>
+                    <p><strong>Pembahasan:</strong> Ini adalah nilai <span class="font-mono text-purple-700">y</span> puncak. <span class="font-mono text-purple-700">a = -16, b = 112</span>.</p>
+                    <p><span class="font-mono text-purple-700">xₚ = -b / (2a) = -112 / (2 * -16) = -112 / -32 = 3.5</span>.</p>
+                    <p><span class="font-mono text-purple-700">yₚ = f(3.5) = –16(3.5)² + 112(3.5) – 91 = –16(12.25) + 392 – 91 = –196 + 392 – 91 = 105</span>.</p>
+                    <p>Tinggi maksimum balon udara adalah 105 meter.</p>
+                </div>
+            </section>
+
+            <!-- Recite -->
+            <section class="sq3r-section">
+                <h3>R - Recite (Ulas Kembali)</h3>
+                <p>Poin-poin kunci dari Bab 2 tentang Fungsi Kuadrat:</p>
+                <ul class="list-disc">
+                    <li><strong>Bentuk Umum:</strong> <span class="font-mono text-purple-700">f(x) = ax² + bx + c, a ≠ 0</span>. Grafiknya parabola.</li>
+                    <li><strong>Nilai 'a':</strong> Menentukan arah bukaan parabola (atas jika <span class="font-mono text-purple-700">a > 0</span>, bawah jika <span class="font-mono text-purple-700">a < 0</span>).</li>
+                    <li><strong>Sumbu Simetri:</strong> <span class="font-mono text-purple-700">x = -b / (2a)</span>.</li>
+                    <li><strong>Titik Puncak:</strong> <span class="font-mono text-purple-700">(xₚ, yₚ)</span> dengan <span class="font-mono text-purple-700">xₚ = -b / (2a)</span> dan <span class="font-mono text-purple-700">yₚ = -D / (4a)</span>.</li>
+                    <li><strong>Titik Potong Sumbu Y:</strong> <span class="font-mono text-purple-700">(0, c)</span>.</li>
+                    <li><strong>Diskriminan <span class="font-mono text-purple-700">(D = b² - 4ac)</span>:</strong>
+                        <ul class="list-disc pl-5">
+                            <li><span class="font-mono text-purple-700">D > 0</span>: Dua titik potong sumbu X.</li>
+                            <li><span class="font-mono text-purple-700">D = 0</span>: Satu titik singgung sumbu X.</li>
+                            <li><span class="font-mono text-purple-700">D < 0</span>: Tidak memotong/menyinggung sumbu X.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Menyusun Persamaan:</strong> Tergantung informasi yang diketahui (puncak & 1 titik; 2 titik potong X & 1 titik; 3 titik sembarang).</li>
+                    <li><strong>Aplikasi:</strong> Lintasan gerak, optimasi (maksimum/minimum).</li>
+                </ul>
+                <p><strong>Tabel Kamus Parabola:</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Komponen</th>
+                            <th>Pengaruhnya pada Grafik y = ax² + bx + c</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nilai a</td>
+                            <td>a>0: Parabola terbuka ke atas (senyum), punya nilai minimum.<br>a<0: Parabola terbuka ke bawah (cemberut), punya nilai maksimum.</td>
+                        </tr>
+                        <tr>
+                            <td>Nilai b</td>
+                            <td>Bersama dengan a, menentukan posisi sumbu simetri (x = -b/2a).</td>
+                        </tr>
+                        <tr>
+                            <td>Nilai c</td>
+                            <td>Titik potong dengan sumbu Y, yaitu di titik (0,c).</td>
+                        </tr>
+                        <tr>
+                            <td>Nilai D = b² - 4ac</td>
+                            <td>D>0: Memotong sumbu X di dua titik berbeda.<br>D=0: Menyinggung sumbu X di satu titik.<br>D<0: Tidak memotong/menyinggung sumbu X. (Jika D<0,a>0: definit positif; Jika D<0,a<0: definit negatif)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Review -->
+            <section class="sq3r-section">
+                <h3>R - Review (Tinjau Ulang)</h3>
+                <p>Uji pemahamanmu dengan soal-soal berikut:</p>
+                <h4 class="text-lg font-semibold mt-6 mb-3 text-blue-600">Soal Latihan Teks</h4>
+                <div class="example-box">
+                    <p><strong>Soal Latihan:</strong></p>
+                    <ol class="list-decimal pl-5">
+                        <li>Diketahui fungsi kuadrat <span class="font-mono text-purple-700">f(x) = x² - 6x + 5</span>. Tentukan:
+                            <ul class="list-disc pl-5">
+                                <li>Arah keterbukaan parabola.</li>
+                                <li>Persamaan sumbu simetri.</li>
+                                <li>Koordinat titik puncak.</li>
+                                <li>Titik potong dengan sumbu Y.</li>
+                                <li>Titik potong dengan sumbu X (jika ada).</li>
+                                <li>Sketsalah grafiknya!</li>
+                            </ul>
+                        </li>
+                        <li>Tentukan persamaan fungsi kuadrat yang memiliki titik puncak (1, -9) dan melalui titik (3, -5).</li>
+                        <li>Sebuah roket ditembakkan ke atas. Ketinggian roket setelah <span class="font-mono text-purple-700">t</span> detik dirumuskan dengan <span class="font-mono text-purple-700">h(t) = 40t - 5t²</span> meter. Tentukan tinggi maksimum yang dapat dicapai roket tersebut.</li>
+                    </ol>
+                </div>
+
+                <h4 class="text-lg font-semibold mt-6 mb-3 text-blue-600">Kuis Interaktif Bab 2</h4>
+                <div class="quiz-item my-6 p-4 border border-gray-300 rounded-lg">
+                    <p class="font-semibold mb-2">1. Jika nilai diskriminan (D) dari fungsi kuadrat <span class="font-mono text-purple-700">f(x) = ax² + bx + c</span> adalah D < 0 dan nilai a > 0, maka grafik fungsi kuadrat tersebut akan...</p>
+                    <div class="space-y-1 mb-3">
+                        <div><label><input type="radio" name="q1_bab2" value="A" class="mr-2"> Memotong sumbu X di dua titik berbeda.</label></div>
+                        <div><label><input type="radio" name="q1_bab2" value="B" class="mr-2"> Menyinggung sumbu X di satu titik.</label></div>
+                        <div><label><input type="radio" name="q1_bab2" value="C" class="mr-2"> Tidak memotong sumbu X dan terbuka ke atas (definit positif).</label></div>
+                        <div><label><input type="radio" name="q1_bab2" value="D" class="mr-2"> Tidak memotong sumbu X dan terbuka ke bawah (definit negatif).</label></div>
+                    </div>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md text-sm" onclick="checkAnswer('q1_bab2', 'C', 'Nilai diskriminan (D = b² - 4ac) menentukan interaksi grafik dengan sumbu X:<br><ul><li>D > 0: Memotong sumbu X di dua titik.</li><li>D = 0: Menyinggung sumbu X di satu titik.</li><li>D < 0: Tidak memotong/menyinggung sumbu X.</li></ul>Nilai koefisien \'a\' menentukan arah bukaan:<br><ul><li>a > 0: Terbuka ke atas.</li><li>a < 0: Terbuka ke bawah.</li></ul>Jadi, jika D < 0 dan a > 0, grafik tidak memotong sumbu X dan terbuka ke atas (definit positif).')">Periksa Jawaban</button>
+                    <div id="feedback_q1_bab2" class="quiz-feedback mt-2 text-sm"></div>
+                    <div id="explanation_q1_bab2" class="quiz-explanation mt-2 text-sm p-3 rounded-md" style="display:none;"></div>
+                </div>
+
+                <p class="mt-6"><strong>Tips Belajar:</strong></p>
+                <ul class="list-disc">
+                    <li>Sering-sering gambar sketsa grafik! Ini membantu memahami hubungan antara rumus dan bentuk visualnya.</li>
+                    <li>Pahami arti setiap komponen (a, b, c, D) dan bagaimana mereka mempengaruhi grafik.</li>
+                    <li>Untuk soal cerita, bayangkan bentuk parabolanya untuk menentukan apakah yang dicari nilai maksimum, minimum, atau akar-akarnya.</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Bab 3 Content: Statistika -->
+        <div id="bab3" class="tab-content bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-semibold mb-6 chapter-title text-blue-700">Bab 3: Statistika – Mengolah Data, Mengungkap Fakta</h2>
+             <!-- Survey -->
+            <section class="sq3r-section">
+                <h3>S - Survey (Survei)</h3>
+                <p>Selamat datang di Bab 3: Statistika! Setiap hari kita berhadapan dengan banyak data dan informasi, mulai dari skor pertandingan, hasil survei, hingga tren media sosial. Statistika adalah ilmu yang membantu kita 'berbicara' dengan data tersebut, mengubah angka-angka acak menjadi informasi bermakna, dan membantu kita mengambil keputusan. Di bab ini, kita akan belajar cara mengumpulkan, menyajikan, menganalisis, dan menginterpretasi data.</p>
+                <p><strong>Apa yang akan kamu pelajari?</strong></p>
+                <ul class="list-disc">
+                    <li>Pengertian dasar statistika dan pentingnya dalam kehidupan.</li>
+                    <li>Cara menyajikan data: tabel distribusi frekuensi, diagram batang, diagram garis, diagram lingkaran, histogram, poligon frekuensi, dan ogive.</li>
+                    <li>Ukuran pemusatan data: mean (rata-rata), median (nilai tengah), dan modus (nilai paling sering muncul) untuk data tunggal dan berkelompok.</li>
+                    <li>Ukuran penyebaran data: jangkauan, kuartil (Q1, Q2, Q3), jangkauan antarkuartil (IQR), simpangan kuartil, varian (ragam), dan simpangan baku (standar deviasi) untuk data tunggal dan berkelompok.</li>
+                </ul>
+                <div class="analogy">
+                    <p><strong>Analogi Detektif Data:</strong> Anggap dirimu seorang detektif. Data adalah petunjuk yang tersebar. Tugasmu adalah mengumpulkan, mengatur, dan menganalisis petunjuk tersebut untuk memecahkan kasus atau mengambil keputusan.</p>
+                </div>
+            </section>
+
+            <!-- Question -->
+            <section class="sq3r-section">
+                <h3>Q - Question (Pertanyaan)</h3>
+                <p>Sebelum kita mulai, coba pikirkan pertanyaan-pertanyaan ini:</p>
+                <ul class="list-disc">
+                    <li>Mengapa statistika penting dalam kehidupan sehari-hari dan pengambilan keputusan?</li>
+                    <li>Kapan sebaiknya menggunakan diagram batang, garis, atau lingkaran untuk menyajikan data? Apa perbedaan histogram dengan diagram batang?</li>
+                    <li>Apa yang dimaksud dengan mean, median, dan modus? Dalam situasi apa masing-masing ukuran pemusatan ini paling relevan digunakan?</li>
+                    <li>Mengapa kita perlu mengetahui ukuran penyebaran data selain ukuran pemusatannya?</li>
+                    <li>Apa arti dari simpangan baku yang kecil atau besar?</li>
+                    <li>Bagaimana cara menghitung ukuran pemusatan dan penyebaran untuk data yang sudah dikelompokkan dalam tabel frekuensi?</li>
+                </ul>
+            </section>
+
+            <!-- Read -->
+            <section class="sq3r-section">
+                <h3>R - Read (Baca)</h3>
+                <h4>3.1. Statistika Itu Apa Sih? Kenapa Penting?</h4>
+                <p>Statistika adalah cabang ilmu matematika yang fokus pada cara merancang, mengumpulkan, mengolah, menyajikan, menganalisis, dan menginterpretasi data untuk menarik kesimpulan yang valid.</p>
+                <p>Pentingnya statistika: Membantu memahami informasi, mendukung pengambilan keputusan yang tepat sasaran (pemerintahan, bisnis, dll.), dan menganalisis fenomena berdasarkan fakta.</p>
+
+                <h4>3.2. Menyajikan Data Biar Nggak Bingung</h4>
+                <p>Data mentah perlu disajikan agar mudah dipahami.</p>
+                <ul class="list-disc">
+                    <li><strong>Tabel Distribusi Frekuensi:</strong> Meringkas data banyak menjadi kelompok-kelompok (kelas interval) beserta frekuensinya.</li>
+                    <li><strong>Diagram Batang:</strong> Membandingkan jumlah/nilai antar kategori berbeda atau perkembangan nilai. Batang terpisah.</li>
+                    <li><strong>Diagram Garis:</strong> Menunjukkan tren atau perubahan data berkelanjutan dari waktu ke waktu.</li>
+                    <li><strong>Diagram Lingkaran (Pie Chart):</strong> Menunjukkan proporsi/persentase masing-masing bagian data terhadap keseluruhan.</li>
+                    <li><strong>Histogram:</strong> Mirip diagram batang, tapi batang berimpitan. Untuk data kuantitatif kontinu/berkelompok. Sumbu datar: tepi kelas/nilai tengah.</li>
+                    <li><strong>Poligon Frekuensi:</strong> Garis yang menghubungkan titik tengah sisi atas setiap batang histogram.</li>
+                    <li><strong>Ogive (Grafik Frekuensi Kumulatif):</strong>
+                        <ul class="list-disc pl-5">
+                           <li><strong>Ogive Positif:</strong> Dari frekuensi kumulatif "kurang dari". Grafik naik.</li>
+                           <li><strong>Ogive Negatif:</strong> Dari frekuensi kumulatif "lebih dari". Grafik turun.</li>
+                        </ul>
+                         Perpotongan ogive positif dan negatif menunjukkan letak median.
+                    </li>
+                </ul>
+                 <img src="https://placehold.co/600x250/e0e0e0/333333?text=Contoh+Diagram+Batang,+Garis,+Lingkaran" alt="Contoh Diagram Penyajian Data" class="mx-auto my-4 rounded shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/600x250/cccccc/333333?text=Image+Not+Found';">
+
+                <h4>3.3. Mencari "Wakil" Data: Ukuran Pemusatan (Mean, Median, Modus)</h4>
+                <p>Angka yang mewakili pusat sebaran data.</p>
+                <ul class="list-disc">
+                    <li>
+                        <strong>Mean (Rata-rata Hitung, <span class="font-mono text-purple-700">x̄</span>):</strong> Jumlah semua nilai data dibagi banyaknya data.
+                        <div class="analogy"><p><strong>Analogi Bagi Permen Rata:</strong> Jumlah permen yang didapat tiap teman adalah mean.</p></div>
+                        <p>Rumus Data Tunggal: <span class="formula-box inline-block">x̄ = (Σxᵢ) / n</span></p>
+                        <p>Rumus Data Berkelompok: <span class="formula-box inline-block">x̄ = (Σ(fᵢ * xᵢ)) / Σfᵢ</span> (xᵢ = nilai tengah kelas)</p>
+                    </li>
+                    <li>
+                        <strong>Median (Nilai Tengah, Me):</strong> Nilai tengah setelah data diurutkan. Tidak terpengaruh nilai ekstrem.
+                        <div class="analogy"><p><strong>Analogi Baris Tinggi Badan:</strong> Orang yang berdiri di tengah barisan.</p></div>
+                        <p>Data Tunggal (n ganjil): Data ke-((n+1)/2).</p>
+                        <p>Data Tunggal (n genap): Rata-rata data ke-(n/2) dan data ke-((n/2)+1).</p>
+                        <p>Data Berkelompok: <span class="formula-box inline-block">Me = Tb + p * ( (½N - F) / f )</span></p>
+                        (Tb=tepi bawah kelas median, p=panjang kelas, N=total frekuensi, F=frek. kumulatif sebelum kelas median, f=frek. kelas median)
+                    </li>
+                    <li>
+                        <strong>Modus (Nilai Paling Sering Muncul, Mo):</strong> Nilai data dengan frekuensi tertinggi.
+                        <div class="analogy"><p><strong>Analogi Lagu Viral:</strong> Lagu yang paling sering didengar.</p></div>
+                        <p>Data Tunggal: Cari nilai yang paling banyak muncul.</p>
+                        <p>Data Berkelompok: <span class="formula-box inline-block">Mo = Tb + p * ( d₁ / (d₁ + d₂) )</span></p>
+                        (Tb=tepi bawah kelas modus, p=panjang kelas, d₁=selisih frek. kelas modus dgn sebelumnya, d₂=selisih frek. kelas modus dgn sesudahnya)
+                    </li>
+                </ul>
+
+                <h4>3.4. Seberapa Menyebar Sih Datanya? Ukuran Penyebaran</h4>
+                <p>Mengukur seberapa bervariasi nilai-nilai data dari pusatnya.</p>
+                <ul class="list-disc">
+                    <li><strong>Jangkauan (Range, J):</strong> <span class="font-mono text-purple-700">Xmaks - Xmin</span>. Mudah dihitung, tapi dipengaruhi nilai ekstrem.</li>
+                    <li>
+                        <strong>Kuartil (Q₁, Q₂, Q₃):</strong> Membagi data terurut menjadi empat bagian sama besar.
+                        <ul class="list-disc pl-5">
+                            <li>Q₁ (Kuartil Bawah): Batas 25% data terbawah.</li>
+                            <li>Q₂ (Kuartil Tengah): Median.</li>
+                            <li>Q₃ (Kuartil Atas): Batas 75% data terbawah.</li>
+                        </ul>
+                        Rumus Data Berkelompok (mirip Median): <span class="font-mono text-purple-700">Qᵢ = Tb + p * ( (i/4 * N - F) / f )</span> untuk i=1, 3.
+                    </li>
+                    <li><strong>Jangkauan Antarkuartil (IQR):</strong> <span class="font-mono text-purple-700">Q₃ - Q₁</span>. Mengukur sebaran 50% data tengah, tahan pencilan.</li>
+                    <li><strong>Simpangan Kuartil (Qd):</strong> <span class="font-mono text-purple-700">½ * (Q₃ - Q₁)</span>.</li>
+                    <li>
+                        <strong>Varian (Ragam, s² atau σ²):</strong> Rata-rata kuadrat selisih setiap data dengan mean.
+                        <p>Data Tunggal: <span class="formula-box inline-block">s² = Σ(xᵢ - x̄)² / (n-1)</span> (sampel)</p>
+                        <p>Data Berkelompok: <span class="formula-box inline-block">s² = Σfᵢ(xᵢ - x̄)² / (Σfᵢ - 1)</span> (sampel)</p>
+                    </li>
+                    <li>
+                        <strong>Simpangan Baku (Standar Deviasi, s atau σ):</strong> Akar kuadrat positif dari varian. Satuan sama dengan data asli.
+                        <div class="analogy"><p><strong>Analogi Barisan:</strong> Mengukur rata-rata seberapa jauh tiap orang 'geser' dari posisi tengah ideal. Kecil = rapi, besar = menyebar.</p></div>
+                        <p>Rumus: <span class="formula-box inline-block">s = √s²</span></p>
+                    </li>
+                </ul>
+                <div class="example-box">
+                    <p><strong>Contoh Menghitung Mean Data Tunggal:</strong></p>
+                    <p>Nilai ulangan Budi: 7, 8, 6, 9, 7.</p>
+                    <p><span class="font-mono text-purple-700">x̄ = (7+8+6+9+7) / 5 = 37 / 5 = 7.4</span>.</p>
+                    <p><strong>Contoh Menghitung Simpangan Baku Data Tunggal:</strong></p>
+                    <p>Data: 7, 5, 4, 7, 3, 6, 4, 4. (n=8)</p>
+                    <p>1. Mean (<span class="font-mono text-purple-700">x̄</span>) = (7+5+4+7+3+6+4+4)/8 = 40/8 = 5.</p>
+                    <p>2. Kuadrat selisih tiap data dengan mean:</p>
+                    <p><span class="font-mono text-purple-700">(7-5)²=4, (5-5)²=0, (4-5)²=1, (7-5)²=4, (3-5)²=4, (6-5)²=1, (4-5)²=1, (4-5)²=1</span>.</p>
+                    <p>3. Jumlah kuadrat selisih: <span class="font-mono text-purple-700">Σ(xᵢ - x̄)² = 4+0+1+4+4+1+1+1 = 16</span>.</p>
+                    <p>4. Varian (sampel): <span class="font-mono text-purple-700">s² = 16 / (8-1) = 16 / 7 ≈ 2.286</span>.</p>
+                    <p>5. Simpangan Baku: <span class="font-mono text-purple-700">s = √2.286 ≈ 1.512</span>.</p>
+                </div>
+            </section>
+
+            <!-- Recite -->
+            <section class="sq3r-section">
+                <h3>R - Recite (Ulas Kembali)</h3>
+                <p>Ringkasan penting dari Bab Statistika:</p>
+                <ul class="list-disc">
+                    <li><strong>Statistika:</strong> Ilmu tentang pengumpulan, pengolahan, penyajian, analisis, dan interpretasi data.</li>
+                    <li><strong>Penyajian Data:</strong> Tabel (distribusi frekuensi), Diagram (batang, garis, lingkaran), Grafik (histogram, poligon, ogive). Pilih sesuai jenis data dan tujuan.</li>
+                    <li><strong>Ukuran Pemusatan:</strong>
+                        <ul class="list-disc pl-5">
+                            <li><strong>Mean:</strong> Rata-rata. Peka nilai ekstrem.</li>
+                            <li><strong>Median:</strong> Nilai tengah (data terurut). Tidak peka nilai ekstrem.</li>
+                            <li><strong>Modus:</strong> Nilai paling sering muncul.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Ukuran Penyebaran:</strong>
+                        <ul class="list-disc pl-5">
+                            <li><strong>Jangkauan:</strong> Selisih nilai terbesar dan terkecil.</li>
+                            <li><strong>Kuartil (Q₁, Q₂, Q₃):</strong> Membagi data jadi 4 bagian.</li>
+                            <li><strong>IQR:</strong> <span class="font-mono text-purple-700">Q₃ - Q₁</span>, sebaran 50% data tengah.</li>
+                            <li><strong>Simpangan Kuartil:</strong> Setengah IQR.</li>
+                            <li><strong>Varian & Simpangan Baku:</strong> Mengukur seberapa jauh data menyebar dari mean. Simpangan baku kecil berarti data homogen/terpusat.</li>
+                        </ul>
+                    </li>
+                </ul>
+                 <p><strong>Tabel Ukuran Pemusatan Data (Rumus Data Tunggal):</strong></p>
+                <table>
+                    <thead>
+                        <tr><th>Ukuran</th><th>Rumus</th><th>Catatan</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Mean (x̄)</td><td><span class="font-mono">Σxᵢ / n</span></td><td>Peka nilai ekstrem</td></tr>
+                        <tr><td>Median (Me)</td><td>Nilai tengah data terurut</td><td>Tidak peka nilai ekstrem</td></tr>
+                        <tr><td>Modus (Mo)</td><td>Nilai paling sering muncul</td><td>Bisa >1 atau tidak ada</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Review -->
+            <section class="sq3r-section">
+                <h3>R - Review (Tinjau Ulang)</h3>
+                <p>Asah pemahamanmu dengan latihan berikut:</p>
+                <h4 class="text-lg font-semibold mt-6 mb-3 text-blue-600">Soal Latihan Teks</h4>
+                <div class="example-box">
+                    <p><strong>Soal Latihan:</strong></p>
+                    <ol class="list-decimal pl-5">
+                        <li>Data nilai ulangan Matematika 10 siswa: 7, 8, 5, 6, 7, 9, 5, 7, 8, 6. Tentukan mean, median, modus, jangkauan, Q1, Q3, IQR, dan simpangan bakunya!</li>
+                        <li>
+                            Perhatikan tabel distribusi frekuensi nilai ujian berikut:
+                            <table>
+                                <thead><tr><th>Nilai</th><th>Frekuensi</th></tr></thead>
+                                <tbody>
+                                    <tr><td>51-60</td><td>5</td></tr>
+                                    <tr><td>61-70</td><td>8</td></tr>
+                                    <tr><td>71-80</td><td>12</td></tr>
+                                    <tr><td>81-90</td><td>10</td></tr>
+                                    <tr><td>91-100</td><td>5</td></tr>
+                                </tbody>
+                            </table>
+                            Tentukan mean, median, dan modus dari data berkelompok tersebut! Buat juga histogram dan poligon frekuensinya.
+                        </li>
+                    </ol>
+                </div>
+                <h4 class="text-lg font-semibold mt-6 mb-3 text-blue-600">Kuis Interaktif Bab 3</h4>
+                <div class="quiz-item my-6 p-4 border border-gray-300 rounded-lg">
+                    <p class="font-semibold mb-2">1. Ukuran pemusatan data yang merupakan nilai tengah dari data yang telah diurutkan disebut...</p>
+                    <div class="space-y-1 mb-3">
+                        <div><label><input type="radio" name="q1_bab3" value="A" class="mr-2"> Mean</label></div>
+                        <div><label><input type="radio" name="q1_bab3" value="B" class="mr-2"> Median</label></div>
+                        <div><label><input type="radio" name="q1_bab3" value="C" class="mr-2"> Modus</label></div>
+                        <div><label><input type="radio" name="q1_bab3" value="D" class="mr-2"> Jangkauan</label></div>
+                    </div>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md text-sm" onclick="checkAnswer('q1_bab3', 'B', '<ul><li><strong>Mean</strong> adalah rata-rata hitung.</li><li><strong>Median</strong> adalah nilai tengah dari data yang telah diurutkan.</li><li><strong>Modus</strong> adalah nilai yang paling sering muncul.</li><li><strong>Jangkauan</strong> adalah ukuran penyebaran.</li></ul>Jadi, nilai tengah dari data yang telah diurutkan adalah Median.')">Periksa Jawaban</button>
+                    <div id="feedback_q1_bab3" class="quiz-feedback mt-2 text-sm"></div>
+                    <div id="explanation_q1_bab3" class="quiz-explanation mt-2 text-sm p-3 rounded-md" style="display:none;"></div>
+                </div>
+
+                <p class="mt-6"><strong>Tips Belajar:</strong></p>
+                <ul class="list-disc">
+                    <li>Pahami 'kenapa' kita menggunakan ukuran tertentu, bukan hanya hafal rumus.</li>
+                    <li>Konteks data sangat penting dalam interpretasi.</li>
+                    <li>Untuk data berkelompok, teliti dalam menghitung nilai tengah, frekuensi kumulatif, dan tepi kelas.</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Bab 4 Content: Peluang -->
+        <div id="bab4" class="tab-content bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-semibold mb-6 chapter-title text-blue-700">Bab 4: Peluang – Menebak Kemungkinan, Merencanakan Masa Depan</h2>
+            <!-- Survey -->
+            <section class="sq3r-section">
+                <h3>S - Survey (Survei)</h3>
+                <p>Selamat datang di Bab 4: Peluang! Pernahkah kamu berpikir tentang kemungkinan menang undian, perkiraan cuaca, atau hasil pertandingan? Ilmu Peluang (Probabilitas) membantu kita mengukur seberapa besar kemungkinan suatu kejadian akan terjadi. Di bab ini, kita akan belajar konsep dasar peluang, cara menghitungnya, dan bagaimana kaidah pencacahan membantu kita menentukan semua kemungkinan. Konsep ini tidak hanya untuk permainan, tapi juga penting dalam asuransi, analisis risiko, dan banyak bidang lainnya.</p>
+                <p><strong>Apa yang akan kamu pelajari?</strong></p>
+                <ul class="list-disc">
+                    <li>Konsep dasar peluang: percobaan, ruang sampel, titik sampel, dan kejadian.</li>
+                    <li>Rumus dasar menghitung peluang suatu kejadian.</li>
+                    <li>Frekuensi harapan suatu kejadian.</li>
+                    <li>Kaidah pencacahan: aturan penjumlahan, aturan perkalian, permutasi (urutan penting), dan kombinasi (urutan tidak penting).</li>
+                    <li>Peluang kejadian majemuk: gabungan dua kejadian (saling lepas dan tidak saling lepas), kejadian saling bebas, kejadian bersyarat, dan komplemen suatu kejadian.</li>
+                    <li>Pengenalan singkat tentang distribusi peluang diskrit.</li>
+                </ul>
+                <div class="analogy">
+                    <p><strong>Analogi Melempar Dadu:</strong> Saat melempar dadu, ada 6 kemungkinan hasil. Peluang membantu kita menentukan seberapa besar kemungkinan munculnya angka tertentu.</p>
+                </div>
+            </section>
+
+            <!-- Question -->
+            <section class="sq3r-section">
+                <h3>Q - Question (Pertanyaan)</h3>
+                <p>Sebelum kita mulai, renungkan pertanyaan-pertanyaan ini:</p>
+                <ul class="list-disc">
+                    <li>Apa yang dimaksud dengan ruang sampel dan kejadian dalam konteks peluang?</li>
+                    <li>Bagaimana cara menghitung peluang sederhana dari suatu kejadian?</li>
+                    <li>Apa itu frekuensi harapan dan bagaimana menghitungnya?</li>
+                    <li>Kapan kita menggunakan permutasi dan kapan menggunakan kombinasi? Apa perbedaan mendasarnya?</li>
+                    <li>Bagaimana cara menghitung peluang jika ada dua kejadian yang mungkin terjadi (kejadian A ATAU B)? Apa bedanya jika kejadiannya saling lepas atau tidak?</li>
+                    <li>Bagaimana cara menghitung peluang jika dua kejadian harus terjadi bersamaan (kejadian A DAN B)? Apa bedanya jika kejadiannya saling bebas atau bersyarat?</li>
+                    <li>Apa yang dimaksud dengan peluang komplemen suatu kejadian?</li>
+                </ul>
+            </section>
+
+            <!-- Read -->
+            <section class="sq3r-section">
+                <h3>R - Read (Baca)</h3>
+                <h4>4.1. Peluang Itu Apa? Dari Koin Sampai Dadu (Konsep Dasar)</h4>
+                <p>Peluang (Probabilitas) adalah ukuran kemungkinan suatu kejadian akan terjadi, nilainya antara 0 (mustahil) dan 1 (pasti).</p>
+                <ul class="list-disc">
+                    <li><strong>Percobaan:</strong> Proses yang menghasilkan data (misal: lempar koin).</li>
+                    <li><strong>Ruang Sampel (S):</strong> Himpunan semua hasil yang mungkin (misal: {Angka, Gambar} untuk koin).</li>
+                    <li><strong>Titik Sampel:</strong> Setiap anggota ruang sampel (misal: 'Angka').</li>
+                    <li><strong>Kejadian (A):</strong> Himpunan bagian dari ruang sampel (hasil yang diharapkan, misal: muncul 'Angka').</li>
+                </ul>
+
+                <h4>4.2. Menghitung Peluang: Rumus Ajaibnya</h4>
+                <p>Rumus Dasar Peluang Klasik: <span class="formula-box inline-block">P(A) = n(A) / n(S)</span></p>
+                <p>P(A) = Peluang kejadian A, n(A) = banyak anggota kejadian A, n(S) = banyak anggota ruang sampel.</p>
+                <div class="example-box">
+                    <p><strong>Contoh:</strong> Peluang muncul mata dadu 5 saat melempar dadu bersisi enam.</p>
+                    <p>S = {1,2,3,4,5,6} => n(S) = 6.</p>
+                    <p>A = {muncul mata dadu 5} = {5} => n(A) = 1.</p>
+                    <p>P(A) = 1/6.</p>
+                </div>
+
+                <h4>4.3. Frekuensi Harapan: Berapa Kali Sih Harusnya Muncul?</h4>
+                <p>Perkiraan berapa kali suatu kejadian diharapkan muncul jika percobaan dilakukan N kali.</p>
+                <p>Rumus: <span class="formula-box inline-block">Fh(A) = P(A) × N</span></p>
+                <div class="example-box">
+                    <p><strong>Contoh:</strong> Sebuah dadu dilempar 36 kali. Frekuensi harapan muncul mata dadu 3?</p>
+                    <p>P(mata 3) = 1/6. N = 36.</p>
+                    <p>Fh(mata 3) = (1/6) × 36 = 6 kali.</p>
+                </div>
+
+                <h4>4.4. Kaidah Pencacahan: Menghitung Semua Kemungkinan</h4>
+                <p>Aturan untuk menghitung banyaknya cara suatu kejadian dapat terjadi.</p>
+                <ul class="list-disc">
+                    <li>
+                        <strong>Aturan Penjumlahan:</strong> Jika kejadian saling lepas (tidak bisa bersamaan). Total cara = n₁ + n₂ + ...
+                        <div class="analogy"><p><strong>Analogi Pilihan Kendaraan:</strong> Ada 3 bus ATAU 2 kereta. Total pilihan = 3 + 2 = 5.</p></div>
+                    </li>
+                    <li>
+                        <strong>Aturan Perkalian (Filling Slots):</strong> Jika prosedur terdiri dari tahap berurutan. Total cara = n₁ × n₂ × ...
+                        <div class="analogy"><p><strong>Analogi Setelan Baju:</strong> Punya 3 baju DAN 2 celana. Total pasangan = 3 × 2 = 6.</p></div>
+                    </li>
+                    <li>
+                        <strong>Permutasi (Urutan Penting!):</strong> Susunan objek di mana urutan diperhatikan.
+                        <p>Rumus <span class="font-mono text-purple-700">nPr = P(n,r) = n! / (n-r)!</span></p>
+                        <div class="analogy"><p><strong>Analogi Juara Lomba:</strong> Memilih Juara 1, 2, 3 dari 5 finalis. Urutan penting.</p></div>
+                        <p>Contoh: Memilih Ketua, Sekretaris, Bendahara dari 6 calon. P(6,3) = 6!/(6-3)! = 6!/3! = 120 susunan.</p>
+                    </li>
+                    <li>
+                        <strong>Kombinasi (Urutan Nggak Penting!):</strong> Pemilihan objek di mana urutan tidak diperhatikan.
+                        <p>Rumus <span class="font-mono text-purple-700">nCr = C(n,r) = (<sup>n</sup><sub>r</sub>) = n! / (r!(n-r)!)</span></p>
+                        <div class="analogy"><p><strong>Analogi Tim Lomba:</strong> Memilih 3 orang perwakilan dari 30 siswa. Urutan tidak ngaruh.</p></div>
+                        <p>Contoh: Memilih 3 siswa dari 7 siswa berprestasi untuk beasiswa. C(7,3) = 7!/(3!(7-3)!) = 35 cara.</p>
+                    </li>
+                </ul>
+
+                <h4>4.5. Peluang Kejadian Majemuk</h4>
+                <ul class="list-disc">
+                    <li>
+                        <strong>Peluang Gabungan Dua Kejadian (A ATAU B):</strong>
+                        <ul class="list-disc pl-5">
+                            <li><strong>Saling Lepas</strong> (tidak bisa terjadi bersamaan): <span class="formula-box inline-block">P(A∪B) = P(A) + P(B)</span>.
+                            Contoh: Lempar dadu, P(muncul 2 ATAU 5) = P(2) + P(5) = 1/6 + 1/6 = 1/3.</li>
+                            <li><strong>Tidak Saling Lepas</strong> (bisa terjadi bersamaan, ada irisan): <span class="formula-box inline-block">P(A∪B) = P(A) + P(B) – P(A∩B)</span>.
+                            Contoh: Lempar dadu, P(ganjil ATAU prima). A={1,3,5}, B={2,3,5}, A∩B={3,5}. P(A∪B) = 3/6 + 3/6 - 2/6 = 4/6.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Peluang Kejadian Saling Bebas (A DAN B, tidak saling mempengaruhi):</strong>
+                        <p><span class="formula-box inline-block">P(A∩B) = P(A) × P(B)</span>.</p>
+                        <p>Contoh: Lempar koin (P(Gambar)=1/2) DAN dadu (P(6)=1/6). P(Gambar DAN 6) = 1/2 × 1/6 = 1/12.</p>
+                    </li>
+                    <li>
+                        <strong>Peluang Kejadian Bersyarat (P(B|A) = Peluang B terjadi JIKA A sudah terjadi):</strong>
+                        <p><span class="formula-box inline-block">P(B|A) = P(A∩B) / P(A)</span> atau <span class="font-mono text-purple-700">P(A∩B) = P(A) × P(B|A)</span>.</p>
+                        <p>Contoh: Kotak isi 2 Merah, 3 Hijau. Ambil 1 (misal Hijau, P(H1)=3/5). Tanpa pengembalian, ambil lagi. P(Merah kedua | Hijau pertama) = P(M2|H1) = 2 bola Merah / 4 sisa bola = 2/4 = 1/2.</p>
+                    </li>
+                    <li>
+                        <strong>Peluang Komplemen Suatu Kejadian (A TIDAK terjadi, P(A')) :</strong>
+                        <p><span class="formula-box inline-block">P(A') = 1 – P(A)</span>.</p>
+                        <p>Contoh: Jika P(hujan) = 0.7, maka P(tidak hujan) = 1 - 0.7 = 0.3.</p>
+                    </li>
+                </ul>
+
+                <h4>4.6. Distribusi Peluang (Pengenalan Sederhana)</h4>
+                <p>Peta yang menunjukkan semua kemungkinan nilai suatu peubah acak (variabel yang nilainya ditentukan hasil acak) beserta peluangnya.</p>
+                <p><strong>Peubah Acak Diskrit:</strong> Nilainya bisa dihitung (bilangan bulat). Contoh: Jumlah 'Gambar' saat lempar 3 koin (bisa 0, 1, 2, atau 3).</p>
+                <div class="example-box">
+                    <p><strong>Contoh Distribusi Peluang Diskrit:</strong> Lempar 2 koin. X = banyak muncul Angka.</p>
+                    <p>S = {AA, AG, GA, GG}.</p>
+                    <p>P(X=0) (GG) = 1/4.</p>
+                    <p>P(X=1) (AG, GA) = 2/4 = 1/2.</p>
+                    <p>P(X=2) (AA) = 1/4.</p>
+                    <p>Tabel Distribusi Peluang:</p>
+                    <table><thead><tr><th>x (Nilai X)</th><th>0</th><th>1</th><th>2</th></tr></thead><tbody><tr><td>P(X=x)</td><td>1/4</td><td>1/2</td><td>1/4</td></tr></tbody></table>
+                    <p>Total peluang = 1/4 + 1/2 + 1/4 = 1.</p>
+                </div>
+            </section>
+
+            <!-- Recite -->
+            <section class="sq3r-section">
+                <h3>R - Recite (Ulas Kembali)</h3>
+                <p>Poin-poin penting dari Bab Peluang:</p>
+                <ul class="list-disc">
+                    <li><strong>Peluang:</strong> Ukuran kemungkinan kejadian (0 sampai 1). P(A) = n(A)/n(S).</li>
+                    <li><strong>Frekuensi Harapan:</strong> Fh(A) = P(A) × N.</li>
+                    <li><strong>Kaidah Pencacahan:</strong>
+                        <ul class="list-disc pl-5">
+                            <li><strong>Penjumlahan:</strong> Untuk pilihan saling lepas ("ATAU").</li>
+                            <li><strong>Perkalian:</strong> Untuk tahapan berurutan ("DAN").</li>
+                            <li><strong>Permutasi:</strong> Urutan penting (nPr).</li>
+                            <li><strong>Kombinasi:</strong> Urutan tidak penting (nCr).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Kejadian Majemuk:</strong>
+                        <ul class="list-disc pl-5">
+                            <li><strong>Gabungan (A∪B, "ATAU"):</strong> Jika saling lepas, P(A)+P(B). Jika tidak, P(A)+P(B)-P(A∩B).</li>
+                            <li><strong>Saling Bebas (A∩B, "DAN"):</strong> P(A)×P(B).</li>
+                            <li><strong>Bersyarat (B|A, "JIKA A"):</strong> P(A∩B)/P(A).</li>
+                            <li><strong>Komplemen (A'):</strong> 1 - P(A).</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Tabel Kaidah Pencacahan:</strong></p>
+                <table>
+                    <thead><tr><th>Jenis Kaidah</th><th>Kapan Digunakan</th><th>Contoh</th></tr></thead>
+                    <tbody>
+                        <tr><td>Aturan Penjumlahan</td><td>Pilihan saling lepas ("ATAU")</td><td>3 jenis bus ATAU 2 jenis kereta</td></tr>
+                        <tr><td>Aturan Perkalian</td><td>Tahapan berurutan ("DAN")</td><td>3 baju DAN 2 celana</td></tr>
+                        <tr><td>Permutasi</td><td>Urutan diperhatikan</td><td>Memilih Juara 1, 2, 3</td></tr>
+                        <tr><td>Kombinasi</td><td>Urutan tidak diperhatikan</td><td>Memilih tim dari beberapa orang</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Review -->
+            <section class="sq3r-section">
+                <h3>R - Review (Tinjau Ulang)</h3>
+                <p>Coba kerjakan soal-soal ini untuk menguji pemahamanmu:</p>
+                <h4 class="text-lg font-semibold mt-6 mb-3 text-blue-600">Soal Latihan Teks</h4>
+                <div class="example-box">
+                    <p><strong>Soal Latihan:</strong></p>
+                    <ol class="list-decimal pl-5">
+                        <li>Dalam sebuah kantong terdapat 5 kelereng merah, 3 kelereng biru, dan 2 kelereng hijau. Jika diambil satu kelereng secara acak, berapa peluang terambil kelereng merah atau biru?</li>
+                        <li>Dari angka 1, 2, 3, 4, 5 akan disusun bilangan ratusan tanpa ada angka yang berulang. Berapa banyak bilangan yang dapat terbentuk?</li>
+                        <li>Sebuah dadu dan sekeping koin dilempar bersamaan. Berapa peluang muncul mata dadu genap dan sisi gambar pada koin?</li>
+                        <li>Dalam pemilihan pengurus OSIS, ada 5 calon ketua, 4 calon sekretaris, dan 3 calon bendahara. Berapa banyak susunan pengurus yang mungkin terbentuk jika setiap calon hanya bisa mengisi satu jabatan?</li>
+                        <li>Dari 10 siswa akan dipilih 3 siswa untuk mengikuti lomba cerdas cermat. Berapa banyak cara memilih ketiga siswa tersebut?</li>
+                    </ol>
+                </div>
+
+                <h4 class="text-lg font-semibold mt-6 mb-3 text-blue-600">Kuis Interaktif Bab 4</h4>
+                <div class="quiz-item my-6 p-4 border border-gray-300 rounded-lg">
+                    <p class="font-semibold mb-2">1. Dalam sebuah kotak terdapat 5 bola merah dan 3 bola biru. Jika satu bola diambil secara acak, berapa peluang terambilnya bola biru?</p>
+                    <div class="space-y-1 mb-3">
+                        <div><label><input type="radio" name="q1_bab4" value="A" class="mr-2"> 5/8</label></div>
+                        <div><label><input type="radio" name="q1_bab4" value="B" class="mr-2"> 3/5</label></div>
+                        <div><label><input type="radio" name="q1_bab4" value="C" class="mr-2"> 3/8</label></div>
+                        <div><label><input type="radio" name="q1_bab4" value="D" class="mr-2"> 1/3</label></div>
+                    </div>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md text-sm" onclick="checkAnswer('q1_bab4', 'C', 'Peluang suatu kejadian A dihitung dengan rumus P(A) = n(A) / n(S).<br><ul><li>n(A) = banyak bola biru = 3.</li><li>n(S) = total bola = 5 (merah) + 3 (biru) = 8.</li></ul>Maka, P(Biru) = 3 / 8.')">Periksa Jawaban</button>
+                    <div id="feedback_q1_bab4" class="quiz-feedback mt-2 text-sm"></div>
+                    <div id="explanation_q1_bab4" class="quiz-explanation mt-2 text-sm p-3 rounded-md" style="display:none;"></div>
+                </div>
+
+                 <p class="mt-6"><strong>Tips Belajar:</strong></p>
+                <ul class="list-disc">
+                    <li>Pahami perbedaan permutasi dan kombinasi. Kapan urutan penting?</li>
+                    <li>Perhatikan kata kunci "ATAU" dan "DAN" pada soal kejadian majemuk.</li>
+                    <li>Latihan dengan berbagai variasi soal akan mengasah intuisimu.</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-700 text-white text-center p-4 mt-8">
+        <p>&copy; 2025 Materi Matematika Kelas 10 SMA. Dibuat dengan ❤️ untuk Sobat Pintar!</p>
+    </footer>
+
+    <script>
+        // Function to open tabs
+        function openTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+                 tabbuttons[i].classList.remove("bg-blue-800", "text-white"); // Remove active style
+                 tabbuttons[i].classList.add("text-gray-700");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+            evt.currentTarget.classList.add("bg-blue-800", "text-white"); // Add active style
+            evt.currentTarget.classList.remove("text-gray-700");
+
+            // Scroll to top of content for better UX on tab change
+            // Consider scrolling to the top of the main content area instead of just below nav
+            const mainContent = document.querySelector('main');
+            if (mainContent) {
+                 window.scrollTo({ top: mainContent.offsetTop - document.querySelector('nav').offsetHeight - 20, behavior: 'smooth' });
+            } else {
+                 window.scrollTo({ top: document.querySelector('nav').offsetTop, behavior: 'smooth' });
+            }
+        }
+
+        // Initialize by opening the home tab
+        document.addEventListener("DOMContentLoaded", function() {
+            // Check if there's a hash in the URL to open a specific tab
+            const hash = window.location.hash.substring(1);
+            const tabs = ['home', 'bab1', 'bab2', 'bab3', 'bab4'];
+            let tabToOpen = 'home';
+            if (hash && tabs.includes(hash)) {
+                tabToOpen = hash;
+            }
+            
+            // Find the button corresponding to tabToOpen and click it
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                if (button.getAttribute('onclick').includes(`'${tabToOpen}'`)) {
+                    button.click();
+                }
+            });
+        });
+
+        // Function to check quiz answers
+        function checkAnswer(questionName, correctAnswerValue, explanationText) {
+            const feedbackEl = document.getElementById('feedback_' + questionName);
+            const explanationEl = document.getElementById('explanation_' + questionName);
+            const radioButtons = document.getElementsByName(questionName);
+            let userAnswer = null;
+
+            for (let i = 0; i < radioButtons.length; i++) {
+                if (radioButtons[i].checked) {
+                    userAnswer = radioButtons[i].value;
+                    break;
+                }
+            }
+
+            // Clear previous feedback classes
+            feedbackEl.classList.remove('correct', 'incorrect');
+
+            if (userAnswer === null) {
+                feedbackEl.innerHTML = '<span class="text-red-600 font-semibold">Silakan pilih jawaban terlebih dahulu!</span>';
+                explanationEl.style.display = 'none';
+                return;
+            }
+
+            if (userAnswer === correctAnswerValue) {
+                feedbackEl.innerHTML = 'Benar! 👍';
+                feedbackEl.classList.add('correct');
+            } else {
+                feedbackEl.innerHTML = `Salah. 👎 Jawaban yang benar adalah ${correctAnswerValue}.`;
+                feedbackEl.classList.add('incorrect');
+            }
+            explanationEl.innerHTML = `<strong>Pembahasan:</strong><br>${explanationText}`;
+            explanationEl.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
